@@ -1043,7 +1043,7 @@ jobs:
              flutter/android/app/src/main/jniLibs/${LIBDIR}/librustdesk.so
 
       - name: Upload Rustdesk library to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: librustdesk.so.${{ matrix.job.target }}
           path: target/${{ matrix.job.target }}/release/liblibrustdesk.so
@@ -1066,7 +1066,7 @@ jobs:
 
       - name: Upload Android APK Artifact
         if: ${{ inputs.upload-artifact == 'true' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: rustdesk-android-${{ matrix.job.arch }}
           path: signed-apk/rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
@@ -1092,7 +1092,7 @@ jobs:
 
       - name: Upload Signed APK Artifact
         if: env.ANDROID_SIGNING_KEY != null && env.UPLOAD_ARTIFACT == 'true'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: rustdesk-signed-${{ matrix.job.arch }}
           path: ${{ steps.sign-rustdesk.outputs.signedReleaseFile }}
