@@ -24,7 +24,7 @@ env:
 
 jobs:
   generate-bridge:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
@@ -224,7 +224,7 @@ jobs:
   build-rustdesk-android-universal:
     needs: [build-rustdesk-android]
     if: ${{ inputs.upload-artifact }}
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     env:
       reltype: release
       suffix: ""
